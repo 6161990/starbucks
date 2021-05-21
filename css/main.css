@@ -1,5 +1,84 @@
+/* COMMON */
 body{
-  color: darkgreen;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4; /* 행간 */
   font-family: 'Nanum Gothic', sans-serif;
-  font-size: 100px;
+}
+img{
+  /* img 는 글자로 취급되기때문에 본래는 inline, 아래에 일정 여백(Baseline)이 생김
+     block ; 하나의 레이아웃으로 사용하고 싶을 때 */
+  display: block;
+}
+a{
+  text-decoration: none;
+}
+
+/* HEADER  */
+header{
+  background-color: royalblue;
+}
+header .inner{
+  /* inner라는 클래스를 가지고 있는 요소는 
+  가로사이즈와 마진의 좌우 값이 auto로 설정되면 
+  가운데로 정렬을 해줌 */
+  width: 1100px;
+  height: 120px;
+  margin: 0 auto;
+  background-color: orange;
+  position: relative;
+}
+header .logo {
+  height: 75px;
+  position: absolute; /* 부모에 position이 지정되어있어야함 */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; /* auto ; 브라우저가 알아서 여백을 조정해 가운데로 몰아주겠다. (높이값이 명시가 되어있을 때 가능)*/
+  display: none;
+}
+header .sub-menu{
+
+}
+header .sub-menu ul.menu{
+  font-family: Arial,sans-serif;
+  display: flex;
+}
+header .sub-menu ul.menu li{
+  position: relative;
+}
+header .sub-menu ul.menu li::before{ 
+  /* '::' 가상요소선택자, before : 내부의 앞쪽에 어떤 내용(little bar)을 추가  */
+  content: ""; /* 글자를 넣지 않을경우 이렇게, 반드시 명시해야함 */
+  display: block; /* position이 absolute라 명시하지 않아도됨 */
+  width: 1px; 
+  height: 12px;
+  background-color: #e5e5e5;
+  position: absolute; /* fixed와 absolute를 가지면 display가 자동으로 block으로 변경됨 */
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+header .sub-menu ul.menu li:first-child::before{
+  /* li의 첫번째 자식 : 'Sign In'의 앞쪽 막대기(little bar)만 none */
+  display: none;
+}
+header .sub-menu ul.menu li a{
+  font-size: 12px;
+  padding: 11px 16px; /* a태그는 inline이라 글자만큼 커지기 때문에 패딩과 마진값 줄 수 없음 */
+  display: block; /*  a태그 본래 속성을 block로 변경, 글자부분외에 사용자가 그 주변부분을 클릭해도 링크로 넘어갈 수 있도록함 */
+  color: #656565;
+}
+header .sub-menu ul.menu li a:hover{ /* ':' 가상선택자 */
+  color: #000;
+}
+header .sub-menu div.search{
+
+}
+header .sub-menu div.search input{
+
+}
+header .sub-menu div.search .material-icons{
+
 }

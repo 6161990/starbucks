@@ -43,9 +43,37 @@
     <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
-    start Starbucks!
-    <span class="material-icons" style="font-size: 100px">
-      favorite_border
-    </span>
+    <!--  HEADER -->
+    <header>
+      <div class="inner">
+        <!-- 도메인/ index.html (/)로 생략가능 -->
+        <a href="/" class="logo">
+          <img src="./images/starbucks_logo.png" alt="STARBUCKS" />
+        </a>
+
+        <div class="sub-menu">
+          <ul class="menu">
+            <li>
+              <a href="/signin">Sign In</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">My Starbucks</a>
+              <!-- 링크를 클릭했을 때 동작이 일어나지 않게 하는 첫번재 방법: javascript:void(0) ; 동작이 void이다. -->
+              <!-- 두번째방법 # ; CSS ID 선택자를 이용해 페이지 내 특정 위치로 이동-->
+            </li>
+            <li>
+              <a href="javascript:void(0)">Customer Service & Ideas</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Find a Store</a>
+            </li>
+          </ul>
+          <div class="search">
+            <input type="text" />
+            <span class="material-icons"> search </span>
+          </div>
+        </div>
+      </div>
+    </header>
   </body>
 </html>
