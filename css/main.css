@@ -17,7 +17,8 @@ a{
 
 /* HEADER  */
 header{
-  background-color: royalblue;
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
 }
 header .inner{
   /* inner라는 클래스를 가지고 있는 요소는 
@@ -26,7 +27,6 @@ header .inner{
   width: 1100px;
   height: 120px;
   margin: 0 auto;
-  background-color: orange;
   position: relative;
 }
 header .logo {
@@ -36,10 +36,12 @@ header .logo {
   bottom: 0;
   left: 0;
   margin: auto; /* auto ; 브라우저가 알아서 여백을 조정해 가운데로 몰아주겠다. (높이값이 명시가 되어있을 때 가능)*/
-  display: none;
 }
 header .sub-menu{
-
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
 }
 header .sub-menu ul.menu{
   font-family: Arial,sans-serif;
@@ -74,11 +76,40 @@ header .sub-menu ul.menu li a:hover{ /* ':' 가상선택자 */
   color: #000;
 }
 header .sub-menu div.search{
-
+  height: 34px;
+  position: relative;
 }
 header .sub-menu div.search input{
-
+  width: 36px;
+  height: 34px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box; /* box-sizing의 기본은 content-box */
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  color: #777;
+  font-size: 12px;
+  transition: width .4s; /* focus에서 blur로 갈때 자연스럽게 .4초로 길이 복구됨 */
+}
+header .sub-menu div.search input:focus{
+  width: 190px;
+  border-color: #669900;
 }
 header .sub-menu div.search .material-icons{
+  height: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  margin: auto;
+  transition: .4s; /* focus가 되고,안되고 할 때 아이콘의 자연스러운 효과 */
+}
 
+
+header .sub-menu div.search.focused .material-icons{
+/* javaScript에서 지정한 클래스 추가 부분을 작업 
+   search가 focus가 될때, icon을 숨김
+*/
+  opacity: 0;
 }
