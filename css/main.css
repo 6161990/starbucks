@@ -5,6 +5,7 @@ body{
   font-weight: 400;
   line-height: 1.4; /* 행간 */
   font-family: 'Nanum Gothic', sans-serif;
+  height: 3000px;
 }
 img{
   /* img 는 글자로 취급되기때문에 본래는 inline, 아래에 일정 여백(Baseline)이 생김
@@ -25,8 +26,12 @@ a{
 }
 /* HEADER  */
 header{
+ /*  position: relative; 브라우저가 가로 넓이 최대한으로 사용 */ 
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
+  position: fixed; /* 뷰포트를 기준으로 배치, 브라우저는 이를 읽고 가로 넓이를 최소한으로 사용하려고함.(absolute와 fixed가 그러함) 
+  가로를 최대한 이용할 수 있도록 100%로 지정.*/
+  width: 100%;
 }
 header > .inner{
   height: 120px; /* heder의 자식요소인 inner만의 높이 */
@@ -193,4 +198,16 @@ header .main-menu .item .item__contents .contents__texture h4 {
 header .main-menu .item .item__contents .contents__texture p {
   color:#669900;
   margin: 4px 0 14px; /* 상, 좌우, 하 */
+}
+header .badges{
+  position: absolute;
+  top: 132px;
+  right: 12px;
+}
+header .badges .badge{ 
+  border-radius: 10px; /* div를 둥글게 깎기 */
+  overflow: hidden; /* 이미지가 둥글게 깎은 badge(div)요소의 밖으로 나와서 radius의 효과를 가리지않도록 */
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, .15);
+  cursor: pointer;
 }
