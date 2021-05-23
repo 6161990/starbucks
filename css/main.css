@@ -14,20 +14,22 @@ img{
 a{
   text-decoration: none;
 }
-
+.inner {
+  /* 페이지의 모든 inner(중앙)요소에 적용 */
+  /* inner라는 클래스를 가지고 있는 요소는 
+  가로사이즈와 마진의 좌우 값이 auto로 설정되면 
+  가운데로 정렬을 해줌 */
+  width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
 /* HEADER  */
 header{
   background-color: #f6f5f0;
   border-bottom: 1px solid #c8c8c8;
 }
-header .inner{
-  /* inner라는 클래스를 가지고 있는 요소는 
-  가로사이즈와 마진의 좌우 값이 auto로 설정되면 
-  가운데로 정렬을 해줌 */
-  width: 1100px;
-  height: 120px;
-  margin: 0 auto;
-  position: relative;
+header > .inner{
+  height: 120px; /* heder의 자식요소인 inner만의 높이 */
 }
 header .logo {
   height: 75px;
@@ -108,8 +110,87 @@ header .sub-menu div.search .material-icons{
 
 
 header .sub-menu div.search.focused .material-icons{
-/* javaScript에서 지정한 클래스 추가 부분을 작업 
-   search가 focus가 될때, icon을 숨김
-*/
+/* javaScript에서 지정한 클래스 추가 부분을 작업 search가 focus가 될때, icon을 숨김*/
   opacity: 0;
+}
+
+/* 메인 메뉴 */
+header .main-menu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1; /* 요소의 쌓임 순서를 z-index로 정해줌. (우측의 배너부분이 가려지게) */
+  display: flex;
+}
+/* 메인 메뉴의 각 메뉴 */
+header .main-menu .item{}
+
+/* 메인 메뉴의 각 메뉴의 이름 */
+header .main-menu .item .item__name {
+  padding: 10px 20px 34px 20px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+}
+/* item = <li>에 hover를 적용해 item__name과 item__contents 두 부분 모두 각각의 효과*/
+header .main-menu .item:hover .item__name{
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0px 0px;
+}
+/* 메인 메뉴의 각 메뉴의 내용 */
+header .main-menu .item .item__contents{
+    /* top이나 bottom속성을 사용하지 않아 수직 위치 값이 없다면, 요소의 원래 위치 그대로 사용함 */
+    /* 만약 position:absolute;를 사용했다면, (위치상)부모 요소를 기준으로 하므로 화면의 뷰포트 좌우 끝까지 늘어날 수 없음. */
+  width: 100%; 
+  position: fixed;  /* 뷰포트를 기준으로 배치 */
+  left: 0;
+  display: none;
+}
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+header .main-menu .item .item__contents .contents__menu { 
+  /* height; 그 안의 내용만큼 높이를 차지(inline). */
+  background-color: #2c2a29;
+}
+header .main-menu .item .item__contents .contents__menu > ul{
+/* = .contents__menu 의 inner(ul)('COFFEE' 메뉴 안의 각 컬럼을 담는 그릇) */
+  display: flex; /* 수평으로 정렬되어야 하므로 */
+  padding: 20px 0px;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li {
+/* = .contents__menu 의 inner(ul)의 li('COFFEE' 메뉴 안의 각 컬럼의 리스트='커피','에스프레소음료'etc.) */
+  width: 220px;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li h4{
+/* 각 컬럼의 제목('커피') */
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul {
+  /* '커피' 하위의 리스트를 담는 그릇, 속성 따로 없음*/  
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+/* '커피' 하위의 리스트 ('스타벅스 원두') */
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+  color: #669900;
+}
+header .main-menu .item .item__contents .contents__texture {
+  padding: 26px 0;
+  font-size: 12px;
+  background-image: url("..//images/main_menu_pattern.jpg");
+}
+header .main-menu .item .item__contents .contents__texture h4 { 
+  color : #999;
+  font-weight: 700;
+}
+header .main-menu .item .item__contents .contents__texture p {
+  color:#669900;
+  margin: 4px 0 14px; /* 상, 좌우, 하 */
 }
