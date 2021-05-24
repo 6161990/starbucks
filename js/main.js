@@ -36,7 +36,7 @@ window.addEventListener('scroll', _.throttle(function(){
       //뱃지 숨기기 
       /*badgeEL.style.display='none'; -> 방법 1 . 자연스럽지 않음 
         자바 스크립트에서 사용할 수 있는 라이브러리 gsap cdn 추가
-        gsap.to(요소, 지속시간, 옵션(css속성을 사용할 수 있음, 문자는''사용));  */
+        gsap.to(요소, 지속시간, 옵션(객체데이터의 형태, css속성을 사용할 수 있음, 문자는''사용));  */
       gsap.to(badgeEL, .6, {  //방법 2. 
         opacity: 0, // opacity 속성처럼 값을 숫자로 입력하는 속성들은, 전환효과 등을 통해 요소의 전/ 후 상태를 중간 숫자의 값으로 자연스럽게 만들어 줄 수 있지만, display 속성처럼 값이 숫자가 아닌 속성은 전/후 상태의 중간값이 존재하지 않기때문에, 자연스러운 전환효과를 적용할 수 없음
         display: 'none' /* (사용자에게 보이지 않을 뿐 실제 그 자리에 계속 존재하기때문에 없애줘야함) */
@@ -60,3 +60,16 @@ window.addEventListener('scroll', _.throttle(function(){
   버벅이는 현상이 생길 수 있음. 실행되는 함수의 수를 외부에서 가져올 수 있는 자바스크립트 라이브러리를 사용(lodash cdn) 
 });*/
  // window : 브라우저의 하나의 탭(걍 하나의 창(화면)), window 객체는 브라우저가가지고 있는 여러가지 명령을 들고 있음  
+
+
+
+ const fadeEls = document.querySelectorAll('.visual .fade-in');
+ fadeEls.forEach(function (fadeEl, index) { 
+   /* fade-in이라는 클래스를 가지고 있는 요소들을 하나씩 순차적으로 
+   함수에서 쓸 수 있게 data로 내어줌. 그것을 통상적으로 'fadeEl'단수형태로 이름지어 쓸 수 있음 */
+   // gsap.to(요소, 지속시간, 옵션);
+   gsap.to(fadeEl, 1, {
+    delay: (index + 1 ) * .7, //[0]0.7 , [1]1.4 , [2]2.1, [3] 2.7
+    opacity : 1
+   });
+ });
