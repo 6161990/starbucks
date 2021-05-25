@@ -403,3 +403,24 @@ header .badges .badge{
   font-size: 30px;
 
 }
+.notice .promotion {
+  height: 693px;
+  background-color: #f6f5ef;
+  position: relative;
+}
+
+.notice .promotion .swiper-container {
+  width: calc(819px * 3 + 20px); /* width : calc(100% - 50px) 알아서 계산해주는 함수 */
+  height: 553px;
+  background-color: #669900;
+  font-size: 200px;
+  text-align: center;
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  margin-left: calc((819px * 3 + 20px) / -2);
+  /* 사이트를 확대해도 정 가운데에 위치시키는 방법  
+    1. left : 가로넓이를 기준으로 왼쪽으로부터 50% 지금에 컨테이너 옮기기 (위치 기준은 50%를 기준으로하고)
+    2. margin-left에 가로넓이의 절반만큼의 크기를 마이너스로줘서 왼쪽으로 다시 끌어온 것  (요소의 가로넓이 절반만큼을 왼쪽으로 땡김)
+  */
+}
