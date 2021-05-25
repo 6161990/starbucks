@@ -76,7 +76,24 @@ window.addEventListener('scroll', _.throttle(function(){
 
 //new Swiper(선택자, 옵션)
 new Swiper('.notice-line .swiper-container', {
-  direction: 'vertical',
+  direction: 'vertical', /* 디폴트는 horizental */
   autoplay: true,
   loop: true 
+});
+new Swiper('.promotion .swiper-container',{
+  slidesPerView: 3, //한번에 보여줄 슬라이드 개수
+  spaceBeteen: 10, // 슬라이드 사이 여백 
+  centeredSlides: true, //1번 슬라이드가 가운데 보이기
+  loop: true ,
+  autoplay: {
+    delay : 5000 //5초에 한번씩 딜레이
+  },
+  pagination : {
+    el: '.promotion .swiper-pagination', // 페이지 요소 선택자 ; 실제로 페이지 번호를 사용하는 그 요소로 사용하겠다.
+    clickable : true // 사용자의 페이지 번호 요소 제어 가능 여부
+  },
+  navigation: {
+    prevEl: '.promotion .swiper-prev',
+    nextEl: '.promotion .swiper-next'
+  }
 });
