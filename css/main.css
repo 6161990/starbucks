@@ -360,6 +360,14 @@ header .badges .badge{
   height:62px ; /* 부모가 수직정렬을 했기 때문에 높이값 지정해주어야함  */
   flex-grow: 1; /* 최대한 늘어나라 */
 }
+.notice .notice-line .inner__left .swiper-slide {
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+.notice .notice-line .inner__left .swiper-slide a {
+  color: #fff;
+}
 .notice .notice-line .inner__left .notice-line__more {
   width: 62px;
   height: 62px;
