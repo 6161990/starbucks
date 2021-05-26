@@ -49,7 +49,7 @@ a{
   background-color: #333;
   color: #fff;
 }
-.btn.btn--reverse { 
+.btn.btn--reverse:hover { 
   background-color: transparent; 
   color: #333;
 }
@@ -408,15 +408,16 @@ header .badges .badge{
   font-size: 30px;
 
 }
+
 .notice .promotion {
   height: 693px;
   background-color: #f6f5ef;
   position: relative;
-  overflow: hidden;
-  transition: height .4s;
+  overflow: hidden; /* height 크기가 0으로 되면서 안에 내용이 넘치치않겐 */
+  transition: height .4s; /* 높이 693에서 0으로 */
 }
-.notice .promotion.hide {
-  height: 0;
+.notice .promotion.hide { /* 띄어쓰기 넣으면 안됨.  */
+  height: 0; 
 }
 .notice .promotion .swiper-container {
   width: calc(819px * 3 + 20px); /* width : calc(100% - 50px) 알아서 계산해주는 함수 */
@@ -494,4 +495,49 @@ header .badges .badge{
 .notice .promotion .swiper-next:hover{
   background-color: #333;
   color: #fff;
+}
+
+/* REWARDS */
+.rewards {
+  position: relative;
+}
+.rewards .bg-left{
+  width: 50%;
+  height: 100%;
+  background-color: #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.rewards .bg-right{
+  width: 50%;
+  height: 100%;
+  background-color: #d5c798;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.rewards .inner{ /* 전역속성을 넣어서 position 있음 */
+  background-image: url("../images/rewards.jpg");
+  height: 241px;
+}
+.rewards .btn-group{
+  position: absolute;
+  bottom: 24px;
+  right: 0;
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap; /* 250px이 넘으면 줄바꿈을 하겠다 */
+}
+.rewards .btn-group .btn.sign-up{
+  margin-right: 10px;
+}
+.rewards .btn-group .btn.sign-in{
+  /* 버튼을 가로 넓이가 130으로 정해놓음.근데 버튼 그룹의 가로 넓이는 250px. 
+   한줄에 두 개 버튼이 위치할 수 없음. 자식들 가로넓이 조정 */
+  width: 110px;
+}
+.rewards .btn-group .btn.gift{
+  margin-top: 10px;
+  flex-grow: 1; /* 최대한의 넓이로 늘어나라. 증가비율 1로 */
 }
