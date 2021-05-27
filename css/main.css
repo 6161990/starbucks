@@ -541,3 +541,68 @@ header .badges .badge{
   margin-top: 10px;
   flex-grow: 1; /* 최대한의 넓이로 늘어나라. 증가비율 1로 */
 }
+
+
+/* YOUTUBE  */
+.youtube{
+  position: relative;
+  height: 700px;
+  background-color: #333;
+  overflow: hidden;
+}
+.youtube .youtube__area{
+  width: 1920px;
+  background-color: orange;
+  position: absolute;
+  left: 50%;
+  margin-left: calc(1920px / -2); /* 수평 정렬 */
+  top: 50%;
+  margin-top: calc(1920px * 9 / 16 /-2); /* 수직 정렬으로  16:9의 비율 */
+}
+.youtube .youtube__area::before{
+  /* 자식요소가 필요한데 그게 스타일을 위한 요소라면 html에서 구조를 생성하지 않고
+  css에서 해결(가상의요소를 선택(가상요소선택자) */
+  content: "" ;
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%; /* 16:9 비율의 영상 */
+  /* 높이를 준 적없지만 패딩-탑을 주면 그에맞춰 늘어남. */
+}
+
+.youtube .youtube__cover{
+  background-image: url("../images/video_cover_pattern.png");
+  background-color: rgba(0, 0, 0, .3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#player{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.youtube .inner{
+  height: 700px;
+}
+.youtube .floating1 {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+.youtube .floating2 {
+  position: absolute;
+  top: 350px;
+  left: 150px;
+}
+.youtube .floating3 {
+  position: absolute;
+  bottom: -200px;
+  right: 0;
+}
