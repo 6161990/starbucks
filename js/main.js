@@ -133,3 +133,23 @@ function floatingObject(selector, delay, size) {
 floatingObject('.floating1', 1,15);
 floatingObject('.floating2', .5,15);
 floatingObject('.floating3', 1.5,20);
+
+
+/**
+ * 요소가 화면에 보여짐 여부에 따른 요소 관리
+ */
+// 관리할 요소들 검색!
+const spyEls = document.querySelectorAll('section.scroll-spy')
+//요소들 반복 처리 
+spyEls.forEach(function (spyEl) {
+  new ScrollMagic  
+    .Scene({ /* Scene().특정한 요소를 감시하는 옵션 */
+      triggerElement:spyEl, //보여짐 여부를 감시할 요소를 지정
+      triggerHook: .8 
+      //뷰포트가 시작하는 부분 0 , 끝나는 부분 1,내가 감시하고 있는 요소가 뷰포트의 어떤 지점에서 감시되었다는 것을 판단할 것인가
+    })
+    .setClassToggle(spyEl,'show') // setClassToggle ; 어떤 클래스를 넣었다 뺐다(요소와 클래스이름 )
+    .addTo(new ScrollMagic.Controller()); // addTo; ScrollMagic가 필요한 컨트롤러라는 라이브러리를 추가한다
+})
+
+
