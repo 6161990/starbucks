@@ -98,6 +98,17 @@ new Swiper('.promotion .swiper-container',{
   }
 });
 
+new Swiper('.awards .swiper-container',{
+  autoplay:true,
+  loop:true,
+  spaceBeteen: 30,
+  slidesPerView: 5, /* 하나의 화면에 몇개의 슬라이드를 보여줄거냐 */
+  navigation: {
+    prevEl: '.awards .swiper-prev',
+    nextEl: '.awards .swiper-next'
+  }
+});
+
 
 const promotionEl = document.querySelector('.promotion');
 const promotionToggleBtn = document.querySelector('.toggle-promotion');
