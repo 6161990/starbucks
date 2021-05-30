@@ -30,6 +30,8 @@ searchInputEl.addEventListener('blur', function(){
 
 
 const badgeEL = document.querySelector('header .badges');
+const toTopEl = document.querySelector('#to-top');
+
 window.addEventListener('scroll', _.throttle(function(){
   console.log(window.scrollY); // scrollY ; 화면이 스크롤 될 때마다 Y 속성이 갱신됨. 위로부터 몇 픽셀 지점에 위치하는지 파악할 수 있음
   if(window.scrollY > 500){ 
@@ -41,12 +43,20 @@ window.addEventListener('scroll', _.throttle(function(){
         opacity: 0, // opacity 속성처럼 값을 숫자로 입력하는 속성들은, 전환효과 등을 통해 요소의 전/ 후 상태를 중간 숫자의 값으로 자연스럽게 만들어 줄 수 있지만, display 속성처럼 값이 숫자가 아닌 속성은 전/후 상태의 중간값이 존재하지 않기때문에, 자연스러운 전환효과를 적용할 수 없음
         display: 'none' /* (사용자에게 보이지 않을 뿐 실제 그 자리에 계속 존재하기때문에 없애줘야함) */
       });
+      //ScrollToPlugin 버튼 보이기
+      gsap.to('#to-top',.2, { 
+        x:0
+      });
   } else{
       //뱃지 보이기
       //badgeEL.style.display='block';
       gsap.to(badgeEL, .6, {
         opacity: 1,
         display: 'block'
+      });
+      //ScrollToPlugin 버튼 숨기기
+      gsap.to(toTopEl, .2, { /* 47번라인 처럼 아이디('#to-top')를 직접 선언해도되고, 그걸 담은 변수를 가져와도 되고 */
+        x:100
       });
   }
 },300)); 
@@ -61,7 +71,12 @@ window.addEventListener('scroll', _.throttle(function(){
 });*/
  // window : 브라우저의 하나의 탭(걍 하나의 창(화면)), window 객체는 브라우저가가지고 있는 여러가지 명령을 들고 있음  
 
-
+// toTopEl 33번 라인에 선언됨.
+toTopEl.addEventListener('click',function(){ /* 버튼을 클릭하면 맨 상단으로 scrollTo */
+  gsap.to(window, .7,{
+    scrollTo: 0
+  });
+});
 
  const fadeEls = document.querySelectorAll('.visual .fade-in');
  fadeEls.forEach(function (fadeEl, index) { 
