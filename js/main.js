@@ -164,3 +164,8 @@ spyEls.forEach(function (spyEl) {
 })
 
 
+const thisYear = document.querySelector('.this-year');
+thisYear.textContent = new Date().getFullYear(); //2021
+/* 현재 날짜의 연도가 숫자데이터로 반환됨 */
+
+/* textContent 값을 알아내거나, 지정할 수 있음 */
